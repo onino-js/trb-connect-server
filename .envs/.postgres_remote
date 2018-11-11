@@ -1,0 +1,5 @@
+DB_PORT=5432
+DB_HOST=ec2-54-246-84-200.eu-west-1.compute.amazonaws.com
+DB_USER=vuedcjurojasxp
+DB_PASSWORD=Mannheim2206
+DB_NAME=dc25fhg2ldin4k

@@ -1,0 +1,7 @@
+port=3004
+DB_PORT=5432
+NODE_ENV=prod
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASSWORD=Bleyoner1
+DB_NAME=trb
