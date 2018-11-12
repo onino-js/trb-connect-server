@@ -3,7 +3,7 @@ require('dotenv').config();
 const entitiesDir =
   process.env.NODE_ENV !== 'production'
     ? __dirname + '/src/**/*.entity{.ts,.js}'
-    : __dirname + '/src/**/*.entity{.ts,.js}';
+    : __dirname + '/dist/**/*.entity{.ts,.js}';
 
 const migrationsDir =
   process.env.NODE_ENV !== 'production'
