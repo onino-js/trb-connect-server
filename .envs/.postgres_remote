@@ -1,5 +1,7 @@
+port=3004
 DB_PORT=5432
 DB_HOST=ec2-54-246-84-200.eu-west-1.compute.amazonaws.com
 DB_USER=vuedcjurojasxp
 DB_PASSWORD=Mannheim2206
 DB_NAME=dc25fhg2ldin4k
+DATABASE_URL=postgres://vuedcjurojasxp:86ab11e4a8812006b1a91c4da493ab69b20a5fc3756ca3594eb86ba7859ab8b8@ec2-54-246-84-200.eu-west-1.compute.amazonaws.com:5432/dc25fhg2ldin4k
