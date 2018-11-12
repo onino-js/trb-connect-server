@@ -3,7 +3,7 @@ require('dotenv').config();
 const entitiesDir =
   process.env.NODE_ENV !== 'production'
     ? __dirname + '/src/**/*.entity{.ts,.js}'
-    : __dirname + '/dist/**/*.entity{.ts,.js}';
+    : __dirname + '/src/**/*.entity{.ts,.js}';
 
 const migrationsDir =
   process.env.NODE_ENV !== 'production'
@@ -33,12 +33,12 @@ const config =
       }
     : {
         type: 'postgres',
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT,
-        username: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-        // url: process.env.DATABASE_URL,
+        // host: process.env.DB_HOST,
+        // port: process.env.DB_PORT,
+        // username: process.env.DB_USER,
+        // password: process.env.DB_PASSWORD,
+        // database: process.env.DB_NAME,
+        url: process.env.DATABASE_URL,
         entities: [entitiesDir],
         migrations: [migrationsDir],
         synchronize: true,

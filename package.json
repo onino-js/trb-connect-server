@@ -12,7 +12,7 @@
     "prestart:ci": "tsc && copyfiles --flat src/**/*.graphql dist/graphql/",
     "prestart:copyfiles": "copyfiles --flat src/**/*.graphql dist/graphql/",
     "prestart:prod": "rm -rf dist && tsc",
-    "start:prod": "NODE_ENV=production node dist/main.js",
+    "start:prod": "node dist/main.js",
     "start:hmr": "node dist/server",
     "start:localprod": "cross-env NODE_ENV=production node dist/main.js",
     "test": "cross-env NODE_ENV=test LOG_LEVEL=quiet jest",
@@ -23,7 +23,7 @@
     "migration:create": "node create_migration",
     "migration:run": "ts-node node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node node_modules/typeorm/cli.js migration:revert",
-    "migration:seed": "node_modules/ts-node/dist/bin.js seed/seed_runner.ts"
+    "migration:seed": "NODE_ENV=production node_modules/ts-node/dist/bin.js seed/seed_runner.ts"
   },
   "dependencies": {
     "@nestjs/common": "^5.3.6",
