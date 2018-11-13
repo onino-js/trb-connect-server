@@ -26,25 +26,25 @@ export const sites_seed_runner = async connection => {
   }
   console.log('probes are saved in db');
 
-  // for (let i = 0; i < 100; i++) {
-  //   const value =
-  //     Math.round((Math.random() + 0.5) * 10) *
-  //     10 *
-  //     (Math.round(Math.cos(i)) + 1);
-  //   let newDate = new Date();
-  //   newDate.setSeconds(newDate.getSeconds() + i * 60 * 5);
-  //   const dbProbes = await probeRepository.find({
-  //     relations: ['site'],
-  //   });
-  //   for (let n = 0; n < dbProbes.length; n++) {
-  //     let measure = new MeasureEntity();
-  //     measure.value = value;
-  //     measure.dateTime = newDate;
-  //     measure.probe = dbProbes[n];
-  //     measure.site = dbProbes[n].site;
+  for (let i = 0; i < 100; i++) {
+    const value =
+      Math.round((Math.random() + 0.5) * 10) *
+      10 *
+      (Math.round(Math.cos(i)) + 1);
+    let newDate = new Date();
+    newDate.setSeconds(newDate.getSeconds() + i * 60 * 5);
+    const dbProbes = await probeRepository.find({
+      relations: ['site'],
+    });
+    for (let n = 0; n < dbProbes.length; n++) {
+      let measure = new MeasureEntity();
+      measure.value = value;
+      measure.dateTime = newDate;
+      measure.probe = dbProbes[n];
+      measure.site = dbProbes[n].site;
 
-  //     await measureRepository.save(measure);
-  //   }
-  // }
-  // console.log('measures are saved in db');
+      await measureRepository.save(measure);
+    }
+  }
+  console.log('measures are saved in db');
 };

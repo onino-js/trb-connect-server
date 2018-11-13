@@ -15,10 +15,4 @@ export class AuthController {
   async signup(@Body() body): Promise<any> {
     return await this.authService.signup(body);
   }
-
-  @Get('data')
-  @UseGuards(AuthGuard('jwt'))
-  findAll() {
-    return 'bley';
-  }
 }

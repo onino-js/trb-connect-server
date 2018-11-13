@@ -28,6 +28,7 @@
   "dependencies": {
     "@nestjs/common": "^5.3.6",
     "@nestjs/core": "^5.3.6",
+    "@nestjs/jwt": "^0.2.0",
     "@nestjs/passport": "^5.1.0",
     "@nestjs/typeorm": "^5.0.2",
     "@types/moment": "^2.13.0",
@@ -53,11 +54,11 @@
     "reflect-metadata": "^0.1.12",
     "regenerator-runtime": "^0.12.1",
     "rxjs": "^6.3.3",
+    "ts-node": "^4.1.0",
     "typeorm": "^0.2.7",
     "typescript": "^2.9.2",
     "urijs": "^1.19.1",
-    "zen-observable": "^0.8.9",
-    "ts-node": "^4.1.0"
+    "zen-observable": "^0.8.9"
   },
   "devDependencies": {
     "@nestjs/swagger": "^2.5.1",
