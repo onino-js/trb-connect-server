@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { SiteEntity } from './../sites/sites.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 import { IsEmail } from 'class-validator';
 
 @Entity('users')
@@ -18,4 +25,10 @@ export class UserEntity {
 
   @Column()
   password: string;
+
+  @ManyToMany(type => SiteEntity, site => site.users, {
+    cascade: true,
+  })
+  @JoinTable()
+  sites: SiteEntity[];
 }

@@ -23,7 +23,8 @@
     "migration:create": "node create_migration",
     "migration:run": "ts-node node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node node_modules/typeorm/cli.js migration:revert",
-    "migration:seed": "node_modules/ts-node/dist/bin.js seed/seed_runner.ts"
+    "migration:seed": "node_modules/ts-node/dist/bin.js seed/seed_runner.ts",
+    "migration:prodseed": "node dits/seed/seed_runner.js"
   },
   "dependencies": {
     "@nestjs/common": "^5.3.6",

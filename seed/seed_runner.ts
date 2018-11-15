@@ -3,7 +3,7 @@ import { MeasureEntity } from './../src/measures/measures.entity';
 import { ProbeEntity } from './../src/probes/probes.entity';
 import { SiteEntity } from './../src/sites/sites.entity';
 import { UserEntity } from './../src/users/users.entity';
-import { addEntities, cleanTable, connect } from './seed_helper';
+import { cleanTable, connect } from './seed_helper';
 import { sites_seed_runner } from './sites_runner';
 export const sites = require('./json/sites.json');
 export const users = require('./json/users.json');
@@ -21,7 +21,7 @@ export function runSeed() {
       await cleanTable(connection, UserEntity);
       console.warn('users cleaned');
       console.warn('add user entities');
-      await addEntities(connection, UserEntity, users);
+      // await addEntities(connection, UserEntity, users);
       await sites_seed_runner(connection);
       process.exit();
     },

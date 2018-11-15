@@ -3,14 +3,81 @@
     "id": 1,
     "firstName": "admin",
     "lastName": "admin",
-    "email": "admin.admin@gmail.com",
-    "password": "admin"
+    "email": "admin.admin@admin.com",
+    "password": "admin",
+    "sites": [
+      {
+        "id": 1,
+        "name": "Annaba HF2"
+      },
+      {
+        "id": 2,
+        "name": "Apf bouvier"
+      }
+    ]
   },
   {
     "id": 2,
-    "firstName": "lambda",
-    "lastName": "lambda",
-    "email": "lambda@gmail.com",
-    "password": "lambda"
+    "firstName": "Sébastien",
+    "lastName": "Pinard",
+    "email": "seba.pinard@gmail.com",
+    "password": "spinard123",
+    "sites": [
+      {
+        "id": 1,
+        "name": "Annaba HF2"
+      },
+      {
+        "id": 2,
+        "name": "Apf bouvier"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "firstName": "Stéphane",
+    "lastName": "Duhamel",
+    "email": "sduhamel@trb.fr",
+    "password": "sduhamel123",
+    "sites": [
+      {
+        "id": 1,
+        "name": "Annaba HF2"
+      },
+      {
+        "id": 2,
+        "name": "Apf bouvier"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "firstName": "Josselin",
+    "lastName": "Jamard",
+    "email": "jjamard@trb.fr",
+    "password": "jjamard123",
+    "sites": [
+      {
+        "id": 1,
+        "name": "Annaba HF2"
+      },
+      {
+        "id": 2,
+        "name": "Apf bouvier"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "firstName": "Mahfoud",
+    "lastName": "Zekri",
+    "email": "mzekri@trb.fr",
+    "password": "mzekri123",
+    "sites": [
+      {
+        "id": 1,
+        "name": "Annaba HF2"
+      }
+    ]
   }
 ]

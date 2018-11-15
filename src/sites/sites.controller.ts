@@ -1,5 +1,6 @@
+import { getUserFromToken } from './../auth/get-user';
 import { AuthGuard } from '@nestjs/passport';
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards, Req } from '@nestjs/common';
 import { sitesService } from './sites.service';
 import { SiteEntity } from './sites.entity';
 
@@ -9,7 +10,8 @@ export class sitesController {
 
   @Get('list')
   @UseGuards(AuthGuard('jwt'))
-  async findAll(): Promise<SiteEntity[]> {
-    return this.sitesService.findAll();
+  async findAll(@Req() request): Promise<SiteEntity[]> {
+    const email = getUserFromToken(request);
+    return this.sitesService.find(email);
   }
 }

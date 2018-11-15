@@ -1,7 +1,4 @@
-import {
-  Injectable,
-  NotAcceptableException,
-} from '@nestjs/common';
+import { Injectable, NotAcceptableException } from '@nestjs/common';
 import { validate } from 'class-validator';
 
 import { InjectRepository } from '@nestjs/typeorm';
@@ -19,7 +16,7 @@ export class UsersService {
   onModuleDestroy() {}
 
   async findAll(): Promise<UserEntity[]> {
-    return await this.userRepository.find();
+    return await this.userRepository.find({ relations: ['sites'] });
   }
 
   async findOneByEmail(email: string): Promise<UserEntity> {

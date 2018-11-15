@@ -1,10 +1,18 @@
+import { UserEntity } from './../users/users.entity';
 import { MeasureEntity } from './../measures/measures.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToMany,
+  PrimaryColumn,
+} from 'typeorm';
 import { ProbeEntity } from './../probes/probes.entity';
 
 @Entity('sites')
 export class SiteEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   id: number;
 
   @Column({ default: 'undefined' })
@@ -15,4 +23,7 @@ export class SiteEntity {
 
   @OneToMany(type => MeasureEntity, measure => measure.site)
   measures: MeasureEntity[];
+
+  @ManyToMany(type => UserEntity, user => user.sites)
+  users: UserEntity[];
 }

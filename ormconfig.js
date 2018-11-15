@@ -46,6 +46,7 @@ const config =
           migrationsDir: migrationsDirCli,
         },
         extra: {
+          ssl: true,
           options: {
             encrypt: true,
           },

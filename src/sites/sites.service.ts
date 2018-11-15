@@ -1,3 +1,4 @@
+import { UserEntity } from './../users/users.entity';
 import { Injectable, NotAcceptableException } from '@nestjs/common';
 import { validate } from 'class-validator';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -13,6 +14,20 @@ export class sitesService {
 
   async findAll(): Promise<SiteEntity[]> {
     return await this.sitesRepository.find({ relations: ['probes'] });
+  }
+
+  async find(email): Promise<SiteEntity[]> {
+    let res = await this.sitesRepository.find({
+      relations: ['probes', 'users'],
+    });
+    res = res.filter((site: SiteEntity, index: number) => {
+      return (
+        site.users.findIndex(
+          (user: UserEntity, index: number) => user.email === email,
+        ) !== -1
+      );
+    });
+    return res;
   }
 
   async create(site: SiteEntity): Promise<SiteEntity> {
