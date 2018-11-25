@@ -23,12 +23,11 @@ export class UsersController {
   }
   @Get('test')
   async test(): Promise<string> {
-    console.warn('test');
     return 'hello bro';
   }
 
   @Post('update')
-  // @UseGuards(AuthGuard('jwt'))
+  @UseGuards(AuthGuard('jwt'))
   async update(@Body() user) {
     if (!user || !user.id) {
       return {
@@ -41,14 +40,14 @@ export class UsersController {
   }
 
   @Post('create')
-  // @UseGuards(AuthGuard('jwt'))
+  @UseGuards(AuthGuard('jwt'))
   async create(@Body() user) {
     // TODO : Check validity of input
     return await this.usersService.create(user);
   }
 
   @Post('delete')
-  // @UseGuards(AuthGuard('jwt'))
+  @UseGuards(AuthGuard('jwt'))
   async delete(@Body('id') id) {
     const res = await this.usersService.remove(id);
     return res;
