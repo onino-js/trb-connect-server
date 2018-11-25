@@ -5,6 +5,7 @@ import {
   Delete,
   Body,
   Put,
+  Post,
   Param,
   UseGuards,
 } from '@nestjs/common';
@@ -15,8 +16,8 @@ import { UserEntity } from './users.entity';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Get()
-  @UseGuards(AuthGuard('jwt'))
+  @Get('list')
+  // @UseGuards(AuthGuard('jwt'))
   async findAll(): Promise<UserEntity[]> {
     return this.usersService.findAll();
   }
@@ -24,6 +25,33 @@ export class UsersController {
   async test(): Promise<string> {
     console.warn('test');
     return 'hello bro';
+  }
+
+  @Post('update')
+  // @UseGuards(AuthGuard('jwt'))
+  async update(@Body() user) {
+    if (!user || !user.id) {
+      return {
+        status: 500,
+        message: 'Bad post body parameter for route /users/update',
+      };
+    } else {
+      return await this.usersService.update(user);
+    }
+  }
+
+  @Post('create')
+  // @UseGuards(AuthGuard('jwt'))
+  async create(@Body() user) {
+    // TODO : Check validity of input
+    return await this.usersService.create(user);
+  }
+
+  @Post('delete')
+  // @UseGuards(AuthGuard('jwt'))
+  async delete(@Body('id') id) {
+    const res = await this.usersService.remove(id);
+    return res;
   }
 
   @Put()

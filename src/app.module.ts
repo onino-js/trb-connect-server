@@ -1,3 +1,4 @@
+import { AppController } from './app.controller';
 import { MeasuresModule } from './measures/measures.module';
 import { ProbesModule } from './probes/probes.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -15,5 +16,6 @@ import { SitesModule } from './sites/sites.module';
     MeasuresModule,
     TypeOrmModule.forRoot(),
   ],
+  controllers: [AppController],
 })
 export class ApplicationModule {}

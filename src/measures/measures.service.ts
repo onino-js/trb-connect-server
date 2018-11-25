@@ -45,6 +45,7 @@ export class MeasuresService {
   }
 
   async create(measure: MeasureEntity): Promise<MeasureEntity> {
+    // TODO : measure validation
     let newMeasure = new MeasureEntity();
     Object.assign(newMeasure, measure);
     const err = await validate(newMeasure);

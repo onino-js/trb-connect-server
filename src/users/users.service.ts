@@ -20,25 +20,64 @@ export class UsersService {
   }
 
   async findOneByEmail(email: string): Promise<UserEntity> {
-    console.warn(email);
     return await this.userRepository.findOne({ email: email });
   }
 
-  async remove(id: string): Promise<UserEntity[]> {
+  async remove(id: number): Promise<any> {
     let userToRemove = await this.userRepository.findOne(id);
-    await this.userRepository.remove(userToRemove);
-    return await this.userRepository.find();
+    let res: any;
+    if (userToRemove === undefined) {
+      res = {
+        status: 404,
+        message: "L'utilisateur n'existe pas",
+      };
+    } else {
+      await this.userRepository.remove(userToRemove);
+      res = {
+        status: 200,
+        message: "L'utilisateur a été supprimmé avec succès",
+      };
+    }
+    return res;
+  }
+
+  async update(user: UserEntity): Promise<any> {
+    let userToUpdate = await this.userRepository.findOne(user.id);
+    let res;
+    console.log(user)
+    if (userToUpdate === undefined) {
+      res = {
+        status: 404,
+        message: `User with name ${user.firstName} ${
+          user.lastName
+        }, does not exist`,
+      };
+    } else {
+      await this.userRepository.save({ ...userToUpdate, ...user });
+      res = {
+        status: 200,
+        message: `L'utilisateur a été mis à jours`,
+      };
+    }
+    return res;
   }
 
   async create(user: User): Promise<UserEntity> {
     let newUser = new UserEntity();
     Object.assign(newUser, user);
     const err = await validate(newUser);
+    let res;
     if (err.length > 0) {
-      console.warn(err);
-      throw new NotAcceptableException();
+      res = {
+        status: 400,
+        message: 'Mauvaises entrées',
+      };
+      // console.warn(err);
+      // throw new NotAcceptableException();
+    } else {
+      await this.userRepository.save(newUser);
+      res = { status: 200, message: "L'utilisateur a été ajouté" };
     }
-    await this.userRepository.save(newUser);
-    return newUser;
+    return res;
   }
 }
