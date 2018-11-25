@@ -11,7 +11,8 @@ export class sitesController {
   @Get('list')
   @UseGuards(AuthGuard('jwt'))
   async findAll(@Req() request): Promise<SiteEntity[]> {
-    return this.sitesService.find();
+    const email = getUserFromToken(request);
+    return this.sitesService.findMines(email);
   }
 
   @Get('list-mines')
