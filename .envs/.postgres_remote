@@ -1,6 +1,0 @@
-DB_PORT=5432
-DB_HOST=ec2-54-246-84-200.eu-west-1.compute.amazonaws.com
-DB_USER=ybdcywrovzojny
-DB_PASSWORD=Mannheim2206
-DB_NAME=dc25fhg2ldin4k
-DATABASE_URL=postgres://ybdcywrovzojny:3788ddb38e1f0870c6727332dcba453045b587cfa2673b9a0365c6a696c809b4@ec2-54-246-84-200.eu-west-1.compute.amazonaws.com:5432/dc25fhg2ldin4k
